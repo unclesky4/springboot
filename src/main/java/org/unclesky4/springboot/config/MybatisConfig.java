@@ -15,6 +15,12 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
+
+/**
+ * Mybatis设置
+ * @author unclesky4
+ *
+ */
 @Configuration
 @EnableTransactionManagement
 public class MybatisConfig implements TransactionManagementConfigurer{
@@ -40,23 +46,11 @@ public class MybatisConfig implements TransactionManagementConfigurer{
         bean.setDataSource(dataSource);
         bean.setTypeAliasesPackage("org.unclesky4.springboot.entity");
 
-        //分页插件,插件无非是设置mybatis的拦截器
-/*        PageHelper pageHelper = new PageHelper();
-        Properties properties = new Properties();
-        properties.setProperty("reasonable", "true");
-        properties.setProperty("supportMethodsArguments", "true");
-        properties.setProperty("returnPageInfo", "check");
-        properties.setProperty("params", "count=countSql");
-        pageHelper.setProperties(properties);*/
-
-        //添加插件
-/*        bean.setPlugins(new Interceptor[]{pageHelper});*/
-
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             //设置xml扫描路径
-            bean.setMapperLocations(resolver.getResources("classpath*:mapper/*.xml"));
+            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
             return bean.getObject();
         } catch (Exception e) {
             throw new RuntimeException("sqlSessionFactory init fail",e);

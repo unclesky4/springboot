@@ -1,12 +1,15 @@
 package org.unclesky4.springboot.entity;
 
+import java.io.Serializable;
+
 /**
  * 用户类
  * @author unclesky4
  *
  */
-public class User {
+public class User implements Serializable{
 
+	private static final long serialVersionUID = -5309914771107988278L;
 	private long id;
 	private String name;
 	private int age;

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Primary;
 import com.alibaba.druid.pool.DruidDataSource;
 
 /**
- * 
+ * 数据源设置
  * @author unclesky4
  *
  */
@@ -24,7 +24,7 @@ public class DataSourcesConfig {
     @Bean(name = "dataSource",destroyMethod = "close")
     public DruidDataSource Construction() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/springboot");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/springboot?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false");
         dataSource.setUsername("uncle");
         dataSource.setPassword("uncle");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
