@@ -1,5 +1,5 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
-    <diskStore path="E:\test" />
+    <diskStore path="cache" />
     <!--
     name：Cache的唯一标识
     maxElementsInMemory：内存中最大缓存对象数
